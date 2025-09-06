@@ -1,21 +1,37 @@
-:role {
-  --primary-color: #4CAF50;
-  --secondary-color: #388E3C;
-  --background-color: #f4f4f4;
-  --text-color: #333;
-  --border-color: #ddd;
-  --button-bg-color: #e0e0e0;
-  --button-active-bg-color: #2e7d32;
+ :root {
+  --primary-color: #28682b;             /* Forest Green */
+  --secondary-color: #A5D6A7;           /* Mantis Green */
+  --background-color: #d7e1d7;          /* Soft neutral background */
+  --text-color: #363d35;                   /* Dark Charcoal */
+  --border-color: #A5D6A7;              /* Light Moss Green */
+  --button-bg-color: #A5D6A7;           /* Leaf green */
+  --button-active-bg-color: #2E7D32;    /* Forest Green */
 }
 
 .darkmode {
-  --primary-color: #81C784;
-  --secondary-color: #66BB6A;
-  --background-color: #303030;
-  --text-color: #f4f4f4;
-  --border-color: #555;
-  --button-bg-color: #555;
-  --button-active-bg-color: #388E3C;
+    --primary-color: #A5D6A7;             /* Lighter Green */
+    --secondary-color: #388E3C;           /* Softer light green */
+    --background-color: #363d35;          /* Very dark gray */
+    --text-color: #d7e1d7;                /* Light pastel-teal */
+    --border-color: #2E7D32;              /* Original dark green */
+    --button-bg-color: #388E3C;           /* Deep green */
+    --button-active-bg-color: #66BB6A;    /* Bright green */
+}
+
+header { 
+  background: var(--secondary-color); 
+  color: var(--primary-color); 
+  padding: 0; 
+  margin: 0;
+  text-align: center; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body { 
@@ -23,13 +39,6 @@ body {
   background: var(--background-color); 
   color: var(--text-color); 
   margin: 0; 
-}
-
-header { 
-  background: var(--button-active-bg-color); 
-  color: #fff; 
-  padding: 1rem; 
-  text-align: center; 
 }
 
 footer {
