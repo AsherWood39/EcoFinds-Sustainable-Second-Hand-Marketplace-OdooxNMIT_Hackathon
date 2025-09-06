@@ -194,3 +194,27 @@ if (themeToggle) {
 
 // Call setLogoBg on page load
 setLogoBg();
+
+// Sidebar open/close logic for profile
+const profileBtn = document.getElementById('profileBtn');
+const profileSidebar = document.getElementById('profileSidebar');
+if (profileBtn && profileSidebar) {
+  profileBtn.addEventListener('click', () => {
+    profileSidebar.classList.add('open');
+  });
+  profileSidebar.addEventListener('click', (e) => {
+    if (e.target === profileSidebar) profileSidebar.classList.remove('open');
+  });
+  document.addEventListener('mousedown', (e) => {
+    if (
+      profileSidebar.classList.contains('open') &&
+      !profileSidebar.querySelector('.profile-content').contains(e.target) &&
+      !profileBtn.contains(e.target)
+    ) {
+      profileSidebar.classList.remove('open');
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') profileSidebar.classList.remove('open');
+  });
+}
