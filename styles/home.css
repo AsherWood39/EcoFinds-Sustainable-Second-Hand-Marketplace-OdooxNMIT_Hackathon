@@ -1,0 +1,348 @@
+@import '../global_style.css';
+
+/* Logo styles */
+header .logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  margin-left: 1.5rem;
+}
+
+header .logo-container h1 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  margin-left: 0.5rem;
+  color: inherit;
+}
+
+header .logo-container .logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+header .logo-container .logo {
+  max-width: 50px;
+  height: auto;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 2px var(--button-active-bg-color);
+}
+
+header .logo-container:hover {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+/* Theme toggle styles */
+header #theme-toggle {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 1rem;
+  border: none;
+  box-shadow: 0 0 8px var(--button-active-bg-color);
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+header #theme-toggle:hover {
+  filter: opacity(0.5);
+  transition: filter 0.3s ease;
+}
+
+header #theme-toggle svg {
+  fill: var(--button-active-bg-color);
+  height: 55%;
+}
+
+header #theme-toggle svg:first-child {
+  display: block;
+}
+
+header #theme-toggle svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-toggle svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-toggle svg:last-child {
+  display: block;
+}
+
+/* Profile button styles */
+header #profileBtn {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  margin-right: 2rem;
+  border: none;
+  box-shadow: 0 0 8px var(--button-active-bg-color);
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+header #profileBtn:hover {
+  filter: opacity(0.5);
+  transition: filter 0.3s ease;
+}
+
+header #profileBtn svg {
+  fill: var(--button-active-bg-color);
+  height: 55%;
+}
+
+.container {
+  max-width: 90%;
+  margin: 2rem auto;
+  background: var(--background-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--border-color);
+}
+
+.top-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  flex: 2;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  margin-bottom: 0;
+}
+
+#checkoutBtn {
+  height: 35px;
+  width: 10%;
+  padding: 0.2rem 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  margin-top: 0;
+  background: var(--button-bg-color);
+  border-radius: 6px;
+  font-size: medium;
+}
+
+#checkoutBtn:hover {
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.cart svg {
+  fill: var(--primary-color);
+}
+
+/* Make the search input transparent and styled */
+.search-bar input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.5rem;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.categories { 
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem; 
+}
+
+.categories button { 
+  margin-right: 0.5rem; 
+  padding: 0.5rem 1rem; 
+  border: none; 
+  background: transparent; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+.categories button.active { 
+  background: var(--button-active-bg-color); 
+  color: var(--background-color); 
+}
+
+.products { 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 210px);
+  gap: 1rem;
+  background: var(--background-color);
+  border: none;
+  box-shadow: 0 0 5px var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  align-items: center;
+  height: fit-content;
+}
+
+.product { 
+  margin-left: 0.4rem;
+  height: auto;
+  padding: 0.5rem;
+  border: none; 
+  border-radius: 6px; 
+  box-shadow: 0 0 8px var(--border-color);
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product:hover {
+  transform: scale(1.08);
+  z-index: 2;
+  box-shadow: 0 4px 16px var(--border-color);
+  transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s;
+}
+
+.product img { 
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.product button { 
+  margin: 0; 
+  margin-bottom: 0.5rem;
+  background: var(--button-active-bg-color); 
+  color: var(--background-color); 
+  border: none; 
+  padding: 0.5rem 1rem; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+#cartItemsContainer {
+  flex: 1; 
+  border: none; 
+  border-radius: 6px; 
+  box-shadow: 0 0 8px var(--border-color);
+  margin: 1rem 0;
+  padding: 0; 
+  max-height: 400px; 
+  width: 100%;
+  overflow-y: auto; 
+}
+
+.checkout-message { 
+  color: var(--secondary-color); 
+  font-weight: bold; 
+  margin-top: 1rem; 
+}
+
+button:hover { 
+  filter: brightness(0.9); 
+  transition: filter 0.3s ease; 
+}
+
+/* Profile Sidebar Styles */
+.profile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background: var(--background-color);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.12);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: stretch;
+}
+
+.profile-sidebar.open {
+  transform: translateX(0);
+}
+
+.profile-sidebar #closeProfileBtn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.profile-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 50px;
+  height: 50px;
+  background: var(--background-color);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.profile-avatar svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--primary-color); 
+}
+
+.profile-content {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profile-content h2 {
+  margin-top: 0;
+}
+.profile-content label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.profile-content input,
+.profile-content select {
+  background-color: transparent;
+  margin-top: 0.3rem;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;  
+}
+
+.profile-content button[type="submit"] {
+  margin-top: 1rem;
+  background: var(--button-active-bg-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}

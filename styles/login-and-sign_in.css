@@ -1,0 +1,81 @@
+@import '../global_style.css';
+
+/* Login & Signup Page Styles - EcoFinds color scheme */
+.auth-container {
+	max-width: 400px;
+	margin: 80px auto;
+	background: var(--background-color);
+	border-radius: 12px;
+	box-shadow: 0 2px 12px var(--border-color);
+	padding: 2.5rem 2rem 2rem 2rem;
+	text-align: center;
+}
+
+.auth-container h2 {
+	color: var(--primary-color);
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.auth-container form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.auth-container input,
+.auth-container select {
+  background: transparent;
+	padding: 0.7rem 1rem;
+  border: none;
+	border-bottom: 1px solid var(--border-color);
+	border-radius: 6px;
+	font-size: 1rem;
+	color: var(--text-color);
+	transition: border-color 0.2s;
+}
+
+.auth-container input:focus,
+.auth-container select:focus {
+	border-color: var(--primary-color);
+	outline: none;
+}
+
+.auth-container button[type="submit"] {
+	background: var(--button-active-bg-color);
+	color: var(--background-color);
+	border: none;
+	border-radius: 6px;
+	padding: 0.8rem 2rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: 0.5rem;
+}
+
+.auth-container button[type="submit"]:hover {
+	filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.auth-container a {
+	color: var(--primary-color);
+	text-decoration: underline;
+	font-weight: 500;
+}
+
+.auth-container a:hover {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.error-message {
+	color: #c62828;
+	background: var(--background-color);
+	border-radius: 4px;
+	padding: 0.5rem 1rem;
+	margin-top: 0.5rem;
+	font-size: 0.95rem;
+	min-height: 1.2em;
+}
