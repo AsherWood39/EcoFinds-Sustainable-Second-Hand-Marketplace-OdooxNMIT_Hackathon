@@ -81,27 +81,16 @@ header #auth-buttons {
   margin-right: 1.5rem;
 }
 
-header #auth-buttons button {
-  height: 36px;
-  padding: 0 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  cursor: pointer;
-  font-size: 14px;
-}
-
 /* Profile button styles */
 header #auth-buttons #profileBtn {
   height: 40px;
   width: 40px;
   padding: 0;
-  margin: 0;
+  margin: 1rem !important;
   margin-right: 2rem;
   border: none;
   box-shadow: 0 0 8px var(--button-active-bg-color);
-  border-radius: 50%;
+  border-radius: 50% !important;
   background-color: var(--secondary-color);
   display: flex;
   justify-content: center;

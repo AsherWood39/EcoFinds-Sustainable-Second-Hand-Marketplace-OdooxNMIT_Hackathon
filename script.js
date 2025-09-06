@@ -1,5 +1,5 @@
 // EcoFinds Welcome Page Scripts
-let isLoggedIn = false;
+let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
 function renderButtons() {
   const container = document.getElementById('auth-buttons');
@@ -32,6 +32,7 @@ function renderButtons() {
 
 function login() {
   isLoggedIn = true;
+  localStorage.setItem('isLoggedIn', 'true');
   renderButtons();
   console.log('User logging in');
   window.location.href = './pages/login.html';
@@ -39,6 +40,7 @@ function login() {
 
 function signup() {
   isLoggedIn = true;
+  localStorage.setItem('isLoggedIn', 'true');
   renderButtons();
   console.log('User signing up');
   window.location.href = './pages/signup.html';
@@ -46,9 +48,13 @@ function signup() {
 
 function logout() {
   isLoggedIn = false;
+  localStorage.setItem('isLoggedIn', 'false');
   renderButtons();
   console.log('User logging out');
   window.location.href = 'index.html';
+document.addEventListener('DOMContentLoaded', function() {
+  renderButtons();
+});
 }
 
 function goToProfile() {

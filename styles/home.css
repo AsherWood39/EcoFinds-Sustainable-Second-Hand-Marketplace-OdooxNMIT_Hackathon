@@ -22,7 +22,7 @@ header .logo-container .logo-link {
   text-decoration: none;
 }
 
-header .logo-container .logo {
+header .logo-container #logo {
   max-width: 50px;
   height: auto;
   border: none;

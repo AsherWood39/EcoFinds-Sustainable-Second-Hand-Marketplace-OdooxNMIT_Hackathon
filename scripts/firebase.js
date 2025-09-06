@@ -5,23 +5,12 @@ import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-	signOut,
-	onAuthStateChanged,
-	sendPasswordResetEmail,
-	setPersistence, 
-	browserLocalPersistence, 
-	browserSessionPersistence,
-	sendEmailVerification,
-	updateProfile
 } from "firebase/auth";
 import {
 	getFirestore,
 	doc,
 	setDoc,
-	getDoc,
-	serverTimestamp,
-	updateDoc
-} from "firebase/firestore";
+	serverTimestamp} from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -44,20 +33,25 @@ const db = getFirestore(app);
 
 // Attach login and signup functions to window for use in HTML forms
 window.firebaseLogin = async function(email, password) {
-  return await loginUser(email, password);
+  const user = await loginUser(email, password);
+  window.location.href = "home.html";
+  return user;
 };
 
-window.firebaseSignup = async function(email, password) {
+window.firebaseSignup = async function(email, password, role, name) {
   // Create user with email and password
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
   const user = userCredential.user;
-  // Save user info to Firestore
+  // Save user info to Firestore, including role and name
   await setDoc(doc(db, "users", user.uid), {
     email,
+    role,
+    name,
     createdAt: serverTimestamp(),
     lastLogin: serverTimestamp(),
     emailVerified: user.emailVerified
   });
+    window.location.href = "home.html";
   return userCredential;
 };
 
@@ -69,16 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const email = document.getElementById('signupEmail').value;
       const password = document.getElementById('signupPassword').value;
       const role = document.getElementById('signupRole').value;
+      const name = document.getElementById('signupName') ? document.getElementById('signupName').value : '';
       const errorDiv = document.getElementById('signupError');
       errorDiv.textContent = '';
       if (!role) {
         errorDiv.textContent = 'Please select a role.';
         return;
       }
+      if (!name) {
+        errorDiv.textContent = 'Please enter your name.';
+        return;
+      }
       try {
-        const userCredential = await window.firebaseSignup(email, password);
+        const userCredential = await window.firebaseSignup(email, password, role, name);
         localStorage.setItem('userRole', role);
-    window.location.href = '../pages/login.html';
+    // Redirect handled in firebaseSignup
       } catch (err) {
         errorDiv.textContent = err.message || 'Signup failed.';
       }
@@ -95,13 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const password = document.getElementById('loginPassword').value;
       const errorDiv = document.getElementById('loginError');
       errorDiv.textContent = '';
-      if (!role) {
-        errorDiv.textContent = 'Please select a role.';
-        return;
-      }
+  // No role check needed for login
       try {
         const userCredential = await window.firebaseLogin(email, password);
-    window.location.href = '../home.html';
+    // Redirect handled in firebaseLogin
       } catch (err) {
         errorDiv.textContent = err.message || 'Login failed.';
       }

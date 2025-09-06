@@ -194,6 +194,26 @@ export function initThemeToggle(toggleId = "theme-toggle") {
 }
 
 // Call setLogoBg and initThemeToggle on page load
+// --- Auth Button Logic ---
+function renderAuthButtons() {
+  const profileBtn = document.getElementById('profileBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (profileBtn) profileBtn.style.display = isLoggedIn ? 'inline-block' : 'none';
+  if (logoutBtn) logoutBtn.style.display = isLoggedIn ? 'inline-block' : 'none';
+}
+
+function logout() {
+  localStorage.setItem('isLoggedIn', 'false');
+  renderAuthButtons();
+  window.location.href = '../index.html';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderAuthButtons();
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) logoutBtn.onclick = logout;
+});
 setLogoBg();
 initThemeToggle();
 
@@ -203,7 +223,9 @@ const profileBtn = document.getElementById('profileBtn');
 const profileSidebar = document.getElementById('profileSidebar');
 if (profileBtn && profileSidebar) {
   profileBtn.addEventListener('click', () => {
-    profileSidebar.classList.add('open');
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      profileSidebar.classList.add('open');
+    }
   });
   profileSidebar.addEventListener('click', (e) => {
     if (e.target === profileSidebar) profileSidebar.classList.remove('open');
