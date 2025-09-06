@@ -1,0 +1,43 @@
+:role {
+  --primary-color: #4CAF50;
+  --secondary-color: #388E3C;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --border-color: #ddd;
+  --button-bg-color: #e0e0e0;
+  --button-active-bg-color: #2e7d32;
+}
+
+.darkmode {
+  --primary-color: #81C784;
+  --secondary-color: #66BB6A;
+  --background-color: #303030;
+  --text-color: #f4f4f4;
+  --border-color: #555;
+  --button-bg-color: #555;
+  --button-active-bg-color: #388E3C;
+}
+
+body { 
+  font-family: Arial, sans-serif; 
+  background: var(--background-color); 
+  color: var(--text-color); 
+  margin: 0; 
+}
+
+header { 
+  background: var(--button-active-bg-color); 
+  color: #fff; 
+  padding: 1rem; 
+  text-align: center; 
+}
+
+footer {
+  background: var(--button-active-bg-color);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
